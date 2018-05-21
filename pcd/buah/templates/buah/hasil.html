@@ -1,0 +1,33 @@
+<html>
+{% load static %}
+
+<head>
+  <title>Hasil</title>
+</head>
+
+<body>
+  <!--<td>{0: 'Apple Red', 1: 'Avocado', 2: 'Kiwi', 3: 'Mandarine', 4: 'Pineapple'}</td>-->
+    <ul>
+    </br>
+    {% if aja.Tipe == 0 %}
+    <h1> Apel </h1>
+    {% elif aja.Tipe == 1 %}
+    <h1> Alpukat </h1>
+    {% elif aja.Tipe == 2 %}
+    <h1> Kiwi </h1>
+    {% elif aja.Tipe == 3 %}
+    <h1> Jeruk Mandarin </h1>
+    {% elif aja.Tipe == 4 %}
+    <h1> Nanas </h1>
+    {% endif %}
+    </br>
+    
+		<td><img src="{{ MEDIA_URL }}{{ aja.document.url }}" style="width: 60px;"></td>
+    </ul>
+
+
+
+</body>
+
+
+</html>
