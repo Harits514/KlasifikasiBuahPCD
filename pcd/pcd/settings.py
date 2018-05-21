@@ -70,12 +70,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pcd.wsgi.application'
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
-MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 MEDIA_URL = '/documents/'
+MEDIA_ROOT = '/documents/'
 
-#MEDIA_URL = '/documents/'
-#MEDIA_ROOT = '/documents/'
+#MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+#MEDIA_URL = 'media/'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

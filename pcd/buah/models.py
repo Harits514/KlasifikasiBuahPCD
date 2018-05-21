@@ -7,7 +7,7 @@ from django.utils import timezone
 class fruit(models.Model):
 	Nama_Buah = models.CharField(blank=True, max_length=50)
 	Tipe = models.IntegerField(null=True, blank=True)
-	document = models.FileField(blank=True, upload_to='documents/')
+	document = models.FileField(blank=True)
 	
 	class Meta:
 		db_table = u'buah_fruit'

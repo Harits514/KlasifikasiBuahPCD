@@ -50,6 +50,9 @@ def upload_pic(request):
         item=fruit.objects.get(id=oy)
         #item = fruit.objects.get(id=oy)
         img_file = item.document
+        ayay=img_file.url
+        print(ayay)
+        print(img_file)
         image = cv2.imread(img_file.url, 0)
         #image = cv2.imdecode(numpy.fromstring(img_file, numpy.uint8), cv2.CV_LOAD_IMAGE_UNCHANGED)
         SZ=20
@@ -79,7 +82,5 @@ def upload_pic(request):
         fra=int(fr)
         item.Tipe=fra
         item.save()
-        print(fr)
-        print(item.Tipe)
         
     return HttpResponseRedirect(reverse('buah:hasil', args=[item.id]))
