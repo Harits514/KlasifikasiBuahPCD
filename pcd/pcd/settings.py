@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'pcd.wsgi.application'
 
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
-MEDIA_URL = ''
+MEDIA_URL = '/documents/'
 
 #MEDIA_URL = '/documents/'
 #MEDIA_ROOT = '/documents/'
