@@ -2,20 +2,20 @@
 {% load static %}
 
 <head>
-  <title>HoyHoy</title>
+  <title>Klasifikasi Buah</title>
 </head>
 
 <body>
-  
-  <h1>Hello World</h1>
+
+  <h1>Klasifikasi Buah</h1>
   <h3>Masukan Gambar</h3>
   <form method="POST" enctype="multipart/form-data" action="{% url 'buah:masukin' %}">{% csrf_token %}
     <p>
-        <input id="ahoy" type="file" class="" name="ahoy">
+      <input id="ahoy" type="file" class="" name="ahoy">
     </p>
     <input type="submit" value="Submit" />
   </form>
-  
+
 
 </body>
 
