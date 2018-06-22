@@ -2,20 +2,48 @@
 {% load static %}
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'semantic/semantic.min.css' %}">
+  <script src="{% static 'jquery/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'semantic/semantic.min.js' %}"></script>
   <title>Klasifikasi Buah</title>
 </head>
 
 <body>
-
+<div class="ui  container">
+  <div class="header item">
   <h1>Klasifikasi Buah</h1>
+  </div>
   <h3>Masukan Gambar</h3>
-  <form method="POST" enctype="multipart/form-data" action="{% url 'buah:masukin' %}">{% csrf_token %}
+  <form method="POST" class="ui form" enctype="multipart/form-data" action="{% url 'buah:masukin' %}">{% csrf_token %}
     <p>
+	<div class="ui input">
       <input id="ahoy" type="file" class="" name="ahoy">
+    </div>  
     </p>
-    <input type="submit" value="Submit" />
+    <button type="submit" value="Submit" class="ui button"/> Submit </button>
   </form>
-
+  
+  <h1>Jenis buah yang bisa diidentifikasi:</h1>
+  <div class="ui segments">
+  <div class="ui segment">
+	<p>Apple Red</p>  
+  </div>
+  <div class="ui red segment">
+    <p>Apple Gold</p>
+  </div>
+  <div class="ui blue segment">
+    <p>Apple Granny Smith</p>
+  </div>
+  <div class="ui green segment">
+    <p>Lemon</p>
+  </div>
+  <div class="ui yellow segment">
+    <p>Jeruk Mandarin</p>
+  </div>
+</div>
+  
+</div>
 
 </body>
 

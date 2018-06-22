@@ -1,42 +1,24 @@
 from __future__ import print_function
 
-import numpy as np
-import cv2
-from matplotlib import pyplot as plt
+from sklearn.externals import joblib
+from _ImageTools import *
+from _ProjectTools import *
 
-#Catatan label : {0: 'Apple Golden', 1: 'Apple Granny Smith', 2: 'Apple Red', 3: 'Lemon', 4: 'Mandarine'}
+#{0: 'Apple Golden', 1: 'Apple Granny Smith', 2: 'Apple Red', 3: 'Lemon', 4: 'Mandarine'}
+img = cv2.imread("gambar/mandarine2.jpg")
+img = cv2.medianBlur(img,5)
+fruit_images = []
+fruit_images.append(img)
 
-#Test satu gambar untuk melihat hasil
-img = cv2.imread("gambar/gold2.jpg")
-img=cv2.resize(img, (80,80))
-cv2.imshow("Orisinil",img)
-test1 = []
+X_tr = ExtractFeature(fruit_images)
 
-test1.append(img)
+clf = joblib.load('clfRF70-12-g-wcc.pkl')
+test_predict = clf.predict(X_tr)
 
-images_hue_hist=[]
-images_sat_hist=[]
+print("Kelas: {0: 'Apple Golden', 1: 'Apple Granny Smith', 2: 'Apple Red', 3: 'Lemon', 4: 'Mandarine'}")
+print("Kelas hasil prediksi:",end="")
+print(int(test_predict))
 
-for i in test1:
-    hsv = cv2.cvtColor(i, cv2.COLOR_BGR2HSV)
-    hue_hist = cv2.calcHist([hsv],[0],None,[175],[5,180])
-    sat_hist = cv2.calcHist([hsv],[1],None,[251],[5,256])
-    images_hue_hist.append(hue_hist)
-    images_sat_hist.append(sat_hist)
-    plt.plot(hue_hist)
-    plt.plot(sat_hist)
-
-new_data = np.concatenate((images_hue_hist,images_sat_hist), axis=1)
-print(new_data.shape)
-X_tr = np.array(new_data, np.float32)
-# print(X_tr)
-
-svm = cv2.ml.SVM_load('fruit_hs_svm_model2.yml')
-
-pred=svm.predict(X_tr)[1]
-
-print(pred[0][0])
-
-plt.show()
+print(test_predict[0])
 
 cv2.waitKey(0)

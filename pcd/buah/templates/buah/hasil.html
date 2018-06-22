@@ -2,15 +2,24 @@
 {% load static %}
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'semantic/semantic.min.css' %}">
+  <script src="{% static 'jquery/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'semantic/semantic.min.js' %}"></script>
   <title>Hasil</title>
 </head>
 
-<a href="/">Kembali</a>
+<div onclick="location.href='/';" class="ui animated button" tabindex="0">
+  <div class="visible content">Kembali</div>
+  <div class="hidden content">
+    <i class="left arrow icon"></i>
+  </div>
+</div>
 
 <body>
   <!--<td>{0: 'Apple Red', 1: 'Avocado', 2: 'Kiwi', 3: 'Mandarine', 4: 'Pineapple'}</td>-->
   <ul>
-    </br>
+	 <h1>Jenis Buah:</h1>
     {% if aja.Tipe == 0 %}
     <h1> Apel Gold </h1> {% elif aja.Tipe == 1 %}
     <h1> Apel Granny Smith </h1> {% elif aja.Tipe == 2 %}
@@ -19,7 +28,7 @@
     <h1> Jeruk Mandarin </h1> {% endif %}
     </br>
 
-    <td><img src="{{ MEDIA_URL }}{{ aja.document.url }}" style="width: 60px;"></td>
+    <td><img class="ui small image" src="{{ MEDIA_URL }}{{ aja.document.url }}" style="width: 60px;"></td>
   </ul>
 
 
