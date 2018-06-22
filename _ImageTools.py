@@ -6,7 +6,7 @@ import os
 import random
 from sklearn.metrics.cluster import entropy
 
-def read_image(string):
+def read_image(string, x):
     fruit_images = []
     labels = []
     for fruit_dir_path in glob.glob(string):
@@ -21,7 +21,7 @@ def read_image(string):
 
             images.append(image)
         images = np.array(images)
-        for i in random.sample(range(0,images.shape[0]),300):
+        for i in random.sample(range(0,images.shape[0]),x):
             image = images[i]
             fruit_images.append(image)
             labels.append(fruit_label)

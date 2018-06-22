@@ -17,15 +17,15 @@
 </div>
 
 <body>
-  <!--<td>{0: 'Apple Red', 1: 'Avocado', 2: 'Kiwi', 3: 'Mandarine', 4: 'Pineapple'}</td>-->
+  <!--<td>{0: 'Apple Braeburn', 1: 'Apple Golden', 2: 'Apple Granny Smith', 3: 'Apple Red', 4: 'Apple Red Yellow'}</td>-->
   <ul>
 	 <h1>Jenis Buah:</h1>
     {% if aja.Tipe == 0 %}
-    <h1> Apel Gold </h1> {% elif aja.Tipe == 1 %}
-    <h1> Apel Granny Smith </h1> {% elif aja.Tipe == 2 %}
-    <h1> Apel Red </h1> {% elif aja.Tipe == 3 %}
-    <h1> Lemon </h1> {% elif aja.Tipe == 4 %}
-    <h1> Jeruk Mandarin </h1> {% endif %}
+    <h1> Apple Braeburn </h1> {% elif aja.Tipe == 1 %}
+    <h1> Apple Golden </h1> {% elif aja.Tipe == 2 %}
+    <h1> Apple Granny Smith </h1> {% elif aja.Tipe == 3 %}
+    <h1> Apple Red </h1> {% elif aja.Tipe == 4 %}
+    <h1> Apple Red Yellow </h1> {% endif %}
     </br>
 
     <td><img class="ui small image" src="{{ MEDIA_URL }}{{ aja.document.url }}" style="width: 60px;"></td>
